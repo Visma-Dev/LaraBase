@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use  App\Http\Controllers\MyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Creating routes via closures
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Creating routes via controllers
+Route::get('info/name',  [MyController::class, 'showName']);
+Route::get('info/2name',  [MyController::class, 'show2Name']);
+Route::get('info/gender',  [MyController::class, 'showGender']);
