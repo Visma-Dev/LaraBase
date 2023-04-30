@@ -75,5 +75,14 @@ class PostController extends Controller
     }
 
 
+    public function delete()
+    {
+        $post = Post::find(1);
+        $post->delete();
+
+        dd('deleted');
+    }
+
+
 }
 
