@@ -25,6 +25,38 @@ class PostController extends Controller
         dd('end');
     }
 
+    public function create()
+    {
+        $postsArr = [
+            [
+                'title' => '4th post',
+                'content' => 'some content',
+                'image' => 'beautiful image',
+                'likes' => '33',
+                'is_published' => '1',
+
+            ],
+
+            [
+                'title' => '5th post',
+                'content' => 'some content',
+                'image' => 'beautiful image',
+                'likes' => '33',
+                'is_published' => '1',
+
+            ],
+        ];
+
+        foreach ($postsArr as $item){
+
+            //метод создания записи в бд, принимающий массив, с необходимыми ключами и значениями
+            Post::create($item);
+        }
+
+        dd('created');
+
+    }
+
 
 }
 
