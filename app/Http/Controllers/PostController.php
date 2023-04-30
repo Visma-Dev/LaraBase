@@ -83,6 +83,14 @@ class PostController extends Controller
         dd('deleted');
     }
 
+    public function restore()
+    {
+        $post = Post::withTrashed()->find(1);
+        $post->restore();
+
+        dd('restored');
+    }
+
 
 }
 
