@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\MyController;
+use  App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,5 @@ Route::get('/', function () {
 Route::get('info/name',  [MyController::class, 'showName']);
 Route::get('info/2name',  [MyController::class, 'show2Name']);
 Route::get('info/gender',  [MyController::class, 'showGender']);
+
+Route::get('/posts', [PostController::class, 'index']);
