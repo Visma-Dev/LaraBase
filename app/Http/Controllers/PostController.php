@@ -57,6 +57,23 @@ class PostController extends Controller
 
     }
 
+    public function update()
+    {
+        // выбираем необходимый пост, с помощью запроса
+        $post = Post::find(5);
+
+        // и апдейтим, обращаясь именно к экземпляру класса, т.к. здесь уже идет работа не со статикой
+        $post->update([
+            'title' => 'updated post',
+            'content' => 'some content',
+            'image' => 'beautiful image',
+            'likes' => '88',
+            'is_published' => '1',
+        ]);
+
+        dd('updated');
+    }
+
 
 }
 
