@@ -91,6 +91,46 @@ class PostController extends Controller
         dd('restored');
     }
 
+    public function firstOrCreate()
+    {
+        $post = Post::firstOrCreate(
 
+            //первым аргументом, мы указываем массив со значениями, по которым будет проводиться проверка на наличие данных в бд
+            [
+                'title' => 'already created post',
+            ],
+
+            //в качестве 2-го - массив с данными для инсерта в бд. Если элемент найден, то сработает метод first(),
+            // в обратном случае воспроизведется create, и запись будет добавлена в штатном режиме.
+            [
+                'title' => 'post from combine method',
+                'content' => 'some content',
+                'image' => 'beautiful image',
+                'likes' => '42424',
+                'is_published' => '1',
+            ]
+        );
+    }
+
+    //По аналогии работает и метод updateOrCreate
+
+    public function updateOrCreate()
+    {
+        //Если элемент найден, то сработает метод update(),
+        // в обратном случае воспроизведется create, и запись будет добавлена в штатном режиме.
+        $post = Post::updateOrCreate(
+            [
+                'title' => 'post from combine method',
+            ],
+
+            [
+                'title' => 'post from combine method',
+                'content' => 'some content',
+                'image' => 'beautiful image',
+                'likes' => '42424',
+                'is_published' => '1',
+            ]
+        );
+    }
 }
 
