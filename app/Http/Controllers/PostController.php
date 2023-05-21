@@ -9,20 +9,16 @@ class PostController extends Controller
 {
     public function index(): string
     {
-
         //забираем все посты из таблицы
         $posts = Post::all();
-        foreach ( $posts as $post) {
-            dump($post->title);
-        }
 
         //фильтруем только по опубликованным
         $posts = Post::where('is_published', 1)->get();
-        foreach ( $posts as $post) {
-            dump($post->title);
-        }
 
-        dd('end');
+        // выводим блейд-шаблон из resources/views/
+        return view('posts', compact('posts')); // первым аргументом указываем название вьюшки,
+        // вторым - данные, которые хотим передать в шаблон (в данном случае, используется функция compact для
+        // передачи переменной $posts, но также это может быть и например, какой-нибудь элемент массива).
     }
 
     public function create()
