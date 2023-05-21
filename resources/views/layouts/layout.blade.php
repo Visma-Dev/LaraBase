@@ -10,6 +10,18 @@
 <body>
 
 <div>
+    <div>
+        <nav>
+            <ul>
+                <!-- Ссылаемся на необходимые нам страницы, благодаря именованным роутам -->
+                <li><a href="{{ route('main.index') }}">Main</a></li>
+                <li><a href="{{ route('post.index') }}">Posts</a></li>
+                <li><a href="{{ route('about.index') }}">About</a></li>
+                <li><a href="{{ route('contact.index') }}">Contacts</a></li>
+            </ul>
+        </nav>
+    </div>
+
     <!-- директива yield используется для отображения содержимого секции, предоставленного дочерним шаблоном. -->
     @yield('content')
 </div>
